@@ -1,0 +1,80 @@
+.banner {
+	background: linear-gradient(to bottom, #d48813 0%,#f7c35e 100%);
+	position: relative;
+	z-index: 1;
+
+	.container {
+		@include media(">=desktop") {
+			position: relative;
+			z-index: 1;
+		}
+	}
+
+	h1 {
+		@include font(26px);
+		color: $white;
+		margin-bottom: 0;
+
+		@include media(">=tablet") {
+			@include font(38px);
+		}
+	}
+
+	.holder {
+		width: 100%;
+		max-width: 100%;
+		text-align: left;
+	}
+
+	&-caption {
+		@include v-align(92px);
+	}
+}
+
+.sideblock {
+	@include font(16px);
+	background: $white;
+	color: #2e2e2e;
+	padding: 20px 22px;
+	margin-bottom: 25px;
+
+	h3 {
+		font: 16px/20px $sofiaPro-semi-bold;
+	}
+
+	p {
+		margin-bottom: 0;
+
+		a {
+			color: #2e2e2e;
+			text-decoration: none;
+			font-family: $sofiaPro-semi-bold;
+
+			&:hover {
+				color: $dark-blue;
+			}
+		}
+	}
+
+	.links {
+		margin-bottom: 24px;
+
+		li {
+			margin-bottom: 3px;
+		}
+
+		a {
+			color: #2e2e2e;
+			padding-left: 36px;
+		}
+
+		time {
+			padding-left: 36px;
+		}
+	}
+
+	.title {
+		font-family: $sofiaPro-semi-bold;
+		display: block;
+	}
+}

@@ -1,0 +1,329 @@
+body {
+	line-height: $font-size-base + 4;
+
+	@include media(">=tablet") {
+		@include font(14px, 17px);
+	}
+
+	@include media(">=desktop") {
+		@include font(16px, 19px);
+	}
+}
+
+h1 {
+	font: $h1-font-size/#{$h1-font-size+4} $ashbury;
+	margin-bottom: 20px;
+
+	@include media(">=tablet") {
+		@include font(30px, 36px);
+		margin-bottom: 33px;
+	}
+
+	@include media(">=desktop") {
+		@include font(38px, 46px);
+		margin-bottom: 24px;
+	}
+}
+
+h2 {
+	font: $h2-font-size/#{$h2-font-size+4} $sofiaPro-extra-light;
+
+	@include media(">=desktop") {
+		@include font(24px);
+	}
+}
+
+h3 {
+	font: $h3-font-size/#{$h3-font-size+4} $sofiaPro-light;
+	margin-bottom: 20px;
+
+	@include media(">=desktop") {
+		@include font(20px);
+	}
+}
+
+#wrapper {
+	background: #fdecce;
+	position: relative;
+	overflow: hidden;
+}
+
+#twocolumns {
+	@include media(">=tablet") {
+		display: flex;
+		flex-wrap: wrap;
+	}
+}
+
+#content {
+	margin-bottom: 45px;
+
+	@include media(">=tablet") {
+		width: 65.3%;
+		margin-bottom: 5px;
+	}
+
+	.text-holder {
+		@include font(14px, 18px);
+
+		@include media(">=tablet") {
+			@include font(16px, 24px);
+			padding-right: 65px;
+
+			.doctorPage & {
+				padding-right: 0;
+			}
+		}
+
+		.doctorPage & {
+			@include media(">=tablet") {
+				padding-right: 0;
+			}
+
+			@include media(">=desktop") {
+				padding-right: 44px;
+			}
+		}
+
+		h2 {
+			color: #e49e28;
+			font: 18px/22px $ashbury;
+			margin-bottom: 22px;
+
+			@include media(">=tablet") {
+				@include font(24px);
+				margin-bottom: 19px;
+			}
+		}
+
+		p {
+			margin-bottom: 18px;
+
+			@include media(">=tablet") {
+				margin-bottom: 24px;
+			}
+		}
+
+		address {
+			@include font(20px);
+			font-style: normal;
+			margin-bottom: 22px;
+
+			@include media(">=tablet") {
+				@include font(30px, 1);
+				margin-bottom: 29px;
+			}
+		}
+
+		a {
+			@include animate(color);
+			color: #2e2e2e;
+			text-decoration: none;
+
+			&:hover {
+				color: $dark-blue;
+			}
+		}
+
+		.big {
+			color: #2e2e2e;
+			font: 20px/24px $sofiaPro-extra-light;
+			margin-bottom: 27px;
+
+			@include media(">=tablet") {
+				@include font(36px);
+				margin-bottom: 31px;
+			}
+		}
+	}
+
+	.text-wrap {
+		letter-spacing: -0.8px;
+		overflow: hidden;
+
+		@include media(">=tablet") {
+			padding-top: 12px;
+			letter-spacing: normal;
+		}
+	}
+
+	.image-holder {
+		background: $white;
+		padding: 11px;
+		margin-bottom: 30px;
+
+		img {
+			max-width: none;
+			width: 100%;
+		}
+
+		@include media(">=tablet") {
+			width: 285px;
+			float: left;
+			margin-right: 30px;
+		}
+	}
+
+	.title {
+		display: block;
+		margin-bottom: 17px;
+
+		@include media(">=desktop") {
+			margin-bottom: 25px;
+		}
+	}
+}
+
+#sidebar {
+	@include media(">=tablet") {
+		width: 34.7%;
+		padding-top: 4px;
+	}
+}
+
+.aside {
+	width: 100%;
+
+	@include media(">=desktop") {
+		width: 24.2%;
+	}
+}
+
+.hidden {
+	display: none !important;
+}
+
+.container {
+	padding: 0 18px;
+
+	@include media(">=desktop") {
+		max-width: 1200px;
+		padding: 0 15px;
+		margin: 0 auto;
+	}
+}
+
+.image-holder img {
+	max-width: 100%;
+	height: auto;
+}
+
+.bg-stretch {
+	@include position(absolute, 0, 0, 0, 0);
+	background-position: 50% 50%;
+	background-size: cover;
+	z-index: -1;
+}
+
+.more {
+	@include animate(color);
+	color: #028dbd;
+	text-transform: uppercase;
+	text-decoration: none;
+	font: 11px/15px $sofiaPro-bold;
+
+	&:hover {
+		color: $dark-blue;
+	}
+}
+
+.map {
+	height: 322px;
+	margin-bottom: 37px;
+	position: relative;
+	z-index: 1;
+
+	@include media(">=tablet") {
+		height: 412px;
+		margin-bottom: 58px;
+	}
+
+	.pin {
+		@include animate(color);
+		@include position(absolute, 50%, 50%);
+		color: #46a5cb;
+		font-size: 72px;
+		transform: translate(50%, -80%);
+		z-index: 99;
+
+		&:hover {
+			color: $dark-blue;
+		}
+	}
+}
+
+.links {
+	@extend %listreset;
+
+	a {
+		@include animate(color);
+		color: $white;
+		text-decoration: none;
+		padding-left: 17px;
+		position: relative;
+
+		&:hover {
+			color: $brown;
+		}
+
+		span {
+			@include position(absolute, 0, auto, auto, 0);
+		}
+	}
+
+	time {
+		display: block;
+		padding-left: 17px;
+		position: relative;
+
+		span {
+			@include position(absolute, 0, auto, auto, 0);
+		}
+	}
+}
+
+.list {
+	@extend %listreset;
+	@include font(12px, 18px);
+	letter-spacing: normal;
+
+	@include media(">=tablet") {
+		@include font(16px, 24px);
+	}
+
+	li {
+		position: relative;
+		padding-left: 20px;
+
+		@include media(">=desktop") {
+			padding-left: 25px;
+		}
+
+		&:before {
+			@include size(3px);
+			@include position(absolute, 8px, auto, auto, 3px);
+			content: '';
+			background: #c97430;
+			border-radius: 50%;
+
+			@include media(">=tablet") {
+				@include size(5px);
+				top: 9px;
+				left: 0;
+			}
+		}
+	}
+}
+
+@include media(">=desktop") {
+	[href^="tel:"],
+	[href^="fax:"] {
+		pointer-events: none;
+	}
+}
+
+@include media("<desktop") {
+	.hidden-sm {
+		display: none;
+	}
+}

@@ -1,0 +1,107 @@
+.doctorPage {
+	.banner-caption:after {
+		min-height: 104px;
+
+		@include media(">=tablet") {
+			min-height: 188px;
+		}
+	}
+
+	#twocolumns {
+		@include media(">=tablet") {
+			margin-bottom: 65px;
+		}
+		
+		@include media(">=desktop") {
+			flex-direction: row-reverse;
+			padding-top: 39px;
+			margin-bottom: 113px;
+		}
+	}
+
+	#content {
+		@include media(">=tablet") {
+			width: 100%;
+		}
+
+		@include media(">=desktop") {
+			width: 75.7%;
+		}
+	}
+}
+
+.biographies {
+	padding: 25px 18px 33px;
+	margin: 0 -18px 34px;
+	border-bottom: 1px solid #f4d381;
+
+	@include media(">=tablet") {
+		margin-bottom: 15px;
+	}
+
+	@include media(">=desktop") {
+		border-bottom: none;
+		padding: 0;
+		margin: 0 -18px 0 0;
+	}
+
+	h2 {
+		@include font(18px);
+		color: #c97430;
+		margin-bottom: 13px;
+
+		@include media(">=tablet") {
+			@include font(24px);
+		}
+
+		@include media(">=desktop") {
+			background: #f7af4e;
+			color: $white;
+			text-shadow: 1px 1px 0 #c37101;
+			padding: 21px 24px;
+			margin-bottom: 0;
+		}
+	}
+
+	ul {
+		@extend %listreset;
+	}
+
+	li {
+		border-bottom: 1px solid #f4d381;
+	}
+
+	a {
+		@extend .fa-chevron-right;
+		@include animate(background);
+		color: #028dbd;
+		text-decoration: none;
+		display: block;
+		padding: 15px 18px 15px 38px;
+		position: relative;
+
+		&:hover {
+			background: $white;
+		}
+
+		&:before {
+			@include position(absolute, 20px, auto, auto, 23px);
+			font: 11px/1 FontAwesome;
+		}
+	}
+
+	.active a {
+		background: $white;
+	}
+
+	.biographies-select {
+		@include size(100%, 34px);
+		color: #a4a4a4;
+		font: 13px/17px $sofiaPro-extra-light;
+		padding: 5px 7px;
+
+		@include media(">=desktop") {
+			display: none;
+		}
+	}
+}

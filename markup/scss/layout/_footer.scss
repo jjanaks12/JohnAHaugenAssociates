@@ -1,0 +1,78 @@
+#footer {
+	@include font(14px, 17px);
+	background: $base-background-color;
+	color: $white;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	padding: 34px 3px;
+
+	@include media(">=tablet") {
+		padding-bottom: 62px;
+	}
+
+	@include media(">=desktop") {
+		padding: 46px 0 62px;
+	}
+
+	h2 {
+		color: #fdeccc;
+		margin-bottom: 31px;
+	}
+
+	h3 {
+		color: #7edcfb;
+		font: 14px/18px $sofiaPro-bold;
+		margin-bottom: 0;
+	}
+
+	address {
+		font-style: normal;
+		margin-bottom: 17px;
+	}
+}
+
+.footer-block {
+	margin-bottom: 80px;
+
+	@include media(">=tablet") {
+		display: flex;
+		flex-wrap: wrap;
+		margin-bottom: 69px;
+	}
+
+	@include media(">=desktop") {
+		margin-bottom: 60px;
+	}
+}
+
+.footer-nav {
+	margin-bottom: 40px;
+
+	@include media(">=tablet") {
+		width: calc(25% - 20px);
+		margin-bottom: 20px;
+	}
+
+	@include media(">=desktop") {
+		width: 20.5%;
+	}
+
+	.title {
+		display: block;
+		margin-bottom: 10px;
+	}
+}
+
+.copyright {
+	text-transform: none;
+
+	a {
+		@include animate(color);
+		color: #7edcfb;
+		text-decoration: none;
+
+		&:hover {
+			color: $brown;
+		}
+	}
+}

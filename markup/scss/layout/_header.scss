@@ -1,0 +1,367 @@
+#header {
+	background: linear-gradient(to bottom, #261505 0%,#56390f 82%);
+	border-top: 36px solid #4f2e00;
+	padding: 21px 0 24px;
+	position: relative;
+
+	@include media(">=tablet") {
+		border-top-width: 22px;
+		padding: 23px 2px 24px;
+	}
+
+	@include media(">=desktop") {
+		padding: 24px 0 22px;
+	}
+}
+
+.logo {
+	width: 213px;
+
+	.print {
+		display: none;
+	}
+
+	@include media(">=tablet") {
+		@include inline-block(middle);
+		width: 280px;
+	}
+
+	@include media(">=desktop") {
+		margin-top: -5px;
+	}
+
+	img {
+		@include size(100%, auto);
+	}
+}
+
+#nav {
+	text-transform: uppercase;
+
+	@include media(">=tablet") {
+		@include inline-block(middle);
+		width: calc(100% - 285px);
+		text-align: right;
+	}
+
+	@include media(">=desktop") {
+		position: relative;
+	}
+}
+
+.nav-opener {
+	@include size(43px, 37px);
+	@include position(absolute, 20px, 20px);
+	@include animate(background);
+	text-decoration: none;
+	border-radius: 2px;
+	border: 1px solid #4c4031;
+
+	@include media(">=tablet") {
+		@include inline-block(middle);
+		position: relative;
+		top: auto;
+		right: auto;
+	}
+
+	@include media(">=desktop") {
+		display: none;
+	}
+
+	.nav-active & {
+		background: #e2f7fe;
+	}
+
+	&:before,
+	&:after,
+	span {
+		@extend %transition;
+		@include size(16px, 3px);
+		@include position(absolute, 11px, 0, auto, 0);
+		background: $white;
+		content: '';
+		margin: 0 auto;
+
+		.nav-active & {
+			background: #749099;
+		}
+	}
+
+	.nav-active &:before {
+		transform: rotate(45deg);
+		top: 16px;
+	}
+
+	span {
+		top: 16px;
+
+		.nav-active & {
+			opacity: 0;
+			transform: translateX(-100%);
+		}
+	}
+
+	&:after {
+		top: 21px;
+
+		.nav-active & {
+			transform: rotate(-45deg);
+			top: 16px;
+		}
+	}
+}
+
+.nav-drop {
+	@include position(absolute, 100%, 0, auto, 0);
+	@include animate(opacity transform, 0.4s);
+	background: #b0c8d0;
+	border-style: solid;
+	border-color: $white;
+	border-width: 1px 0;
+	opacity: 0;
+	transform: translateY(100%);
+	pointer-events: none;
+	z-index: 4;
+
+	.resize-active & {
+		transition: none;
+	}
+
+	@include media(">=tablet", "<desktop") {
+		text-align: left;
+	}
+
+	@include media(">=desktop") {
+		@include inline-block;
+		background: linear-gradient(to bottom, #e2f7fe 0%,#749099 100%);
+		border: 2px solid #b0c8d0;
+		border-radius: 18px;
+		transform: translateY(0);
+		pointer-events: auto;
+		opacity: 1;
+		right: -10px;
+		left: 15px;
+	}
+
+	@include media(">=widescreen") {
+		right: -20px;
+		left: 30px;
+	}
+
+	.nav-active & {
+		opacity: 1;
+		transform: translateY(0);
+		pointer-events: auto;
+	}
+}
+
+.navbar {
+	@extend %listreset;
+	font-size: 1px;
+	line-height: 1;
+
+	> li {
+		border-bottom: 1px solid $white;
+
+		@include media(">=desktop") {
+			@include inline-block;
+			width: calc(16.86% - 2px);
+			border-bottom: none;
+			position: relative;
+			border-left: 1px solid #e2f7fe;
+			border-right: 1px solid #749099;
+
+			&:nth-child(6n),
+			&:last-child {
+				border-right: none;
+			}
+
+			&:first-child,
+			&:nth-child(6n+1) {
+				border-left: none;
+			}
+
+			&:first-child:nth-child(1) > a {
+				border-radius: 18px 0 0 0;
+			}
+
+			&:nth-child(6n+1):nth-last-child(6) > a{
+				border-radius: 0 0 0 18px;
+			}
+
+			&:nth-child(6n):nth-child(6) > a{
+				border-radius: 0 18px 0 0;
+			}
+
+			&:nth-child(6n):last-child > a{
+				border-radius: 0 0 18px 0;
+			}
+
+			&:first-child:nth-child(1):nth-last-child(6) > a {
+				border-radius: 18px 0 0 18px;
+			}
+
+			&:last-child:nth-child(6):nth-last-child(1) > a {
+				border-radius: 0 18px 18px 0;
+			}
+		}
+
+		&:last-child {
+			border-bottom: none;
+		}
+
+		&:nth-child(6n) .dropdown,
+		&:last-child .dropdown {
+			@include media(">=desktop") {
+				right: 14px;
+				left: auto;
+			}
+		}
+
+		> a {
+			@include animate(background color);
+			color: #261505;
+			text-decoration: none;
+			font: 700 13px/17px $opensans-cnd;
+			display: block;
+			padding: 7px 35px;
+
+			@include media(">=desktop") {
+				text-align: center;
+				padding: 11px 5px;
+			}
+		}
+
+	}
+
+	> .hover > a,
+	> .active > a {
+		background: #749099;
+		color: $white;
+
+		@include media(">=desktop") {
+			background: #e2f7fe;
+			color: #261505;
+		}
+	}
+
+	> .hover {
+		> .has-drop-down-a:after {
+			transform: rotateZ(0);
+		}
+
+		.dropdown {
+			max-height: 800px;
+		}
+	}
+
+
+	.has-drop-down-a {
+		position: relative;
+
+		&:before,
+		&:after {
+			@include size(10px, 2px);
+			@include position(absolute, 12px, auto, auto, 18px);
+			@include animate(transform);
+			background: $white;
+			content: '';
+
+			@include media(">=desktop") {
+				display: none;
+			}
+		}
+
+		&:after {
+			transform: rotateZ(-90deg);
+		}
+	}
+}
+
+.dropdown {
+	@include animate(max-height, 0.4s, ease-in-out);
+	text-align: left;
+	font: 700 13px/17px $opensans-cnd;
+	max-height: 0;
+	overflow: hidden;
+
+	@include media(">=desktop") {
+		@include position(absolute, 100%, auto, auto, 14px);
+		background: #b0c8d0;
+		width: 221px;
+		z-index: 9;
+	}
+
+	ul {
+		@extend %listreset;
+	}
+
+	li {
+		border-bottom: 1px solid $white;
+
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+
+	a {
+		@include animate(color background);
+		color: #261505;
+		text-decoration: none;
+		display: block;
+		padding: 7px 45px;
+
+		@include media(">=desktop") {
+			padding: 14px 10px 11px 27px;
+			position: relative;
+
+			&:before {
+				@include position(absolute, 18px, auto, auto, 13px);
+				content: $fa-var-chevron-right;
+				font: 11px/1 FontAwesome;
+			}
+		}
+	}
+
+	.hover a {
+		background: #749099;
+		color: $white;
+	}
+}
+
+.call {
+	@include position(absolute, -35px, 0, auto, 0);
+	color: $white;
+	padding: 9px 16px;
+	text-transform: none;
+
+	@include media(">=tablet") {
+		@include font(15px);
+		@include inline-block(middle);
+		padding: 0 20px 0 0;
+		position: static;
+	}
+
+	@include media(">=desktop") {
+		display: block;
+		padding: 0;
+		margin-bottom: 26px;
+	}
+
+	a {
+		@include inline-block(middle);
+		@include animate(color);
+		font: 14px/16px $sofiaPro-bold;
+		color: $white;
+		text-decoration: none;
+		margin: -3px 0 0 5px;
+
+		@include media(">=tablet") {
+			@include font(18px);
+		}
+
+		&:hover {
+			color: $light-orange;
+		}
+	}
+}
