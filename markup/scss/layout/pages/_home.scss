@@ -49,7 +49,7 @@
 			border-bottom: none;
 
 			.bg-stretch {
-				background-size: initial;
+				background-size: auto;
 				background-repeat: no-repeat;
 				background-position: 100% 100%;
 			}
@@ -181,7 +181,7 @@
 		margin-bottom: 13px;
 
 		@include media(">=tablet") {
-			margin-bottom: 15px;
+			margin-bottom: 12px;
 		}
 	}
 

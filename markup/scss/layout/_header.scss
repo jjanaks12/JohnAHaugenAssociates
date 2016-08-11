@@ -10,7 +10,7 @@
 	}
 
 	@include media(">=desktop") {
-		padding: 24px 0 22px;
+		padding: 26px 0 21px;
 	}
 }
 
@@ -133,7 +133,7 @@
 
 	@include media(">=desktop") {
 		@include inline-block;
-		background: linear-gradient(to bottom, #e2f7fe 0%,#749099 100%);
+		background: linear-gradient(to bottom, #e2f7fe 3%,#749099 79%);
 		border: 2px solid #b0c8d0;
 		border-radius: 18px;
 		transform: translateY(0);
@@ -179,6 +179,10 @@
 			&:first-child,
 			&:nth-child(6n+1) {
 				border-left: none;
+
+				.dropdown {
+					left: 14px;
+				}
 			}
 
 			&:first-child:nth-child(1) > a {
@@ -284,12 +288,9 @@
 	font: 700 13px/17px $opensans-cnd;
 	max-height: 0;
 	overflow: hidden;
-	@include all-but-first-last(1) {
-		left: 0;
-	}
 
 	@include media(">=desktop") {
-		@include position(absolute, 100%, auto, auto, 14px);
+		@include position(absolute, 100%, auto, auto, 0);
 		background: #b0c8d0;
 		width: 221px;
 		z-index: 9;
@@ -301,10 +302,6 @@
 
 	li {
 		border-bottom: 1px solid $white;
-
-		&:last-child {
-			border-bottom: none;
-		}
 	}
 
 	a {
@@ -352,7 +349,7 @@
 	}
 
 	a {
-		@include inline-block(middle);
+		@include inline-block;
 		@include animate(color);
 		font: 14px/16px $sofiaPro-bold;
 		color: $white;

@@ -38,12 +38,26 @@
 	padding: 20px 22px;
 	margin-bottom: 25px;
 
+	@include media(">=desktop") {
+		@include font(20px);
+		padding: 19px 28px 19px 26px;
+	}
+
 	h3 {
 		font: 16px/20px $sofiaPro-semi-bold;
+
+		@include media(">=desktop") {
+			@include font(20px);
+			margin-bottom: 22px;
+		}
 	}
 
 	p {
 		margin-bottom: 0;
+
+		@include media(">=desktop") {
+			margin-bottom: 14px;
+		}
 
 		a {
 			color: #2e2e2e;
@@ -59,8 +73,16 @@
 	.links {
 		margin-bottom: 24px;
 
+		@include media(">=desktop") {
+			margin-bottom: 31px;
+		}
+
 		li {
 			margin-bottom: 3px;
+
+			@include media(">=desktop") {
+				margin-bottom: 0;
+			}
 		}
 
 		a {

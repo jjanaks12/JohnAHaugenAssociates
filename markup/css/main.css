@@ -3606,8 +3606,19 @@ h3 {
 
 #content .image-holder {
 	background: #fff;
-	padding: 11px;
 	margin-bottom: 30px;
+	position: relative;
+	z-index: 1;
+}
+
+#content .image-holder:after {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	content: "";
+	box-shadow: inset 0 0 0 11px #fff;
 }
 
 #content .image-holder img {
@@ -3745,6 +3756,15 @@ h3 {
 	content: "";
 	background: #c97430;
 	border-radius: 50%;
+}
+
+.social {
+	-webkit-transition: opacity .3s ease-in-out;
+	transition: opacity .3s ease-in-out;
+}
+
+.social:hover {
+	opacity: .6;
 }
 
 #header {
@@ -3946,16 +3966,8 @@ h3 {
 	overflow: hidden;
 }
 
-.dropdown:nth-child(n + 1):nth-last-child(n + 1) {
-	left: 0;
-}
-
 .dropdown li {
 	border-bottom: 1px solid #fff;
-}
-
-.dropdown li:last-child {
-	border-bottom: none;
 }
 
 .dropdown a {
@@ -3985,7 +3997,7 @@ h3 {
 
 .call a {
 	display: inline-block;
-	vertical-align: middle;
+	vertical-align: top;
 	-webkit-transition: color .3s ease-in-out;
 	transition: color .3s ease-in-out;
 	font: 14px/16px SofiaProBold, Arial, "Helvetica Neue", Helvetica, sans-serif;
@@ -4301,6 +4313,7 @@ h3 {
 }
 
 .copyright {
+	color: #fdecce;
 	text-transform: none;
 }
 
@@ -4338,7 +4351,7 @@ h3 {
 	}
 
 	#content {
-		width: 65.3%;
+		width: 67.2%;
 		margin-bottom: 5px;
 	}
 
@@ -4346,10 +4359,11 @@ h3 {
 		font-size: 16px;
 		line-height: 24px;
 		padding-right: 65px;
+		padding: 0 65px 0 21px;
 	}
 
 	.doctorPage #content .text-holder {
-		padding-right: 0;
+		padding: 0 0 0 16px;
 	}
 
 	.doctorPage #content .text-holder {
@@ -4396,7 +4410,7 @@ h3 {
 
 	.map {
 		height: 412px;
-		margin-bottom: 58px;
+		margin-bottom: 57px;
 	}
 
 	.list {
@@ -4468,7 +4482,7 @@ h3 {
 	}
 
 	.visual .image-stretch .bg-stretch {
-		background-size: initial;
+		background-size: auto;
 		background-repeat: no-repeat;
 		background-position: 100% 100%;
 	}
@@ -4500,7 +4514,7 @@ h3 {
 	}
 
 	.post p {
-		margin-bottom: 15px;
+		margin-bottom: 12px;
 	}
 
 	.post .image-holder {
@@ -4527,7 +4541,7 @@ h3 {
 	}
 
 	.doctorPage .banner-caption:after {
-		min-height: 188px;
+		min-height: 187px;
 	}
 
 	.doctorPage #twocolumns {
@@ -4596,22 +4610,48 @@ h3 {
 		line-height: 24px;
 	}
 
+	#twocolumns {
+		margin: 0 -15px;
+	}
+
+	#content {
+		margin-bottom: 19px;
+	}
+
 	.doctorPage #content .text-holder {
 		padding-right: 44px;
+	}
+
+	#content .text-holder h2 {
+		font-size: 30px;
+		line-height: 34px;
+		margin-bottom: 28px;
+	}
+
+	#content .text-holder address {
+		font-size: 36px;
 	}
 
 	#content .title {
 		margin-bottom: 25px;
 	}
 
+	#sidebar {
+		width: 32.8%;
+	}
+
 	.aside {
-		width: 24.2%;
+		width: 25%;
 	}
 
 	.container {
 		max-width: 1200px;
 		padding: 0 15px;
 		margin: 0 auto;
+	}
+
+	.links a span {
+		top: 3px;
 	}
 
 	.list li {
@@ -4624,7 +4664,7 @@ h3 {
 	}
 
 	#header {
-		padding: 24px 0 22px;
+		padding: 26px 0 21px;
 	}
 
 	.logo {
@@ -4642,8 +4682,8 @@ h3 {
 	.nav-drop {
 		display: inline-block;
 		vertical-align: top;
-		background: -webkit-linear-gradient(top, #e2f7fe 0%, #749099 100%);
-		background: linear-gradient(to bottom, #e2f7fe 0%, #749099 100%);
+		background: -webkit-linear-gradient(top, #e2f7fe 3%, #749099 79%);
+		background: linear-gradient(to bottom, #e2f7fe 3%, #749099 79%);
 		border: 2px solid #b0c8d0;
 		border-radius: 18px;
 		-webkit-transform: translateY(0);
@@ -4673,6 +4713,11 @@ h3 {
 	.navbar > li:first-child,
 	.navbar > li:nth-child(6n+1) {
 		border-left: none;
+	}
+
+	.navbar > li:first-child .dropdown,
+	.navbar > li:nth-child(6n+1) .dropdown {
+		left: 14px;
 	}
 
 	.navbar > li:first-child:nth-child(1) > a {
@@ -4726,7 +4771,7 @@ h3 {
 		top: 100%;
 		right: auto;
 		bottom: auto;
-		left: 14px;
+		left: 0;
 		background: #b0c8d0;
 		width: 221px;
 		z-index: 9;
@@ -4797,6 +4842,30 @@ h3 {
 		z-index: 1;
 	}
 
+	.sideblock {
+		font-size: 20px;
+		line-height: 24px;
+		padding: 19px 28px 19px 26px;
+	}
+
+	.sideblock h3 {
+		font-size: 20px;
+		line-height: 24px;
+		margin-bottom: 22px;
+	}
+
+	.sideblock p {
+		margin-bottom: 14px;
+	}
+
+	.sideblock .links {
+		margin-bottom: 31px;
+	}
+
+	.sideblock .links li {
+		margin-bottom: 0;
+	}
+
 	.doctorPage #twocolumns {
 		-webkit-box-orient: horizontal;
 		-webkit-box-direction: reverse;
@@ -4804,17 +4873,17 @@ h3 {
 		-ms-flex-direction: row-reverse;
 		flex-direction: row-reverse;
 		padding-top: 39px;
-		margin-bottom: 113px;
+		margin-bottom: 99px;
 	}
 
 	.doctorPage #content {
-		width: 75.7%;
+		width: 75%;
 	}
 
 	.biographies {
 		border-bottom: none;
 		padding: 0;
-		margin: 0 -18px 0 0;
+		margin: 0;
 	}
 
 	.biographies h2 {
