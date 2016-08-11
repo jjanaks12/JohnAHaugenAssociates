@@ -3946,6 +3946,10 @@ h3 {
 	overflow: hidden;
 }
 
+.dropdown:nth-child(n + 1):nth-last-child(n + 1) {
+	left: 0;
+}
+
 .dropdown li {
 	border-bottom: 1px solid #fff;
 }

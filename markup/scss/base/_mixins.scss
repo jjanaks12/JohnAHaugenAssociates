@@ -288,3 +288,9 @@ $animation-speed: .3s !default;
     }
   }
 }
+
+@mixin all-but-first-last($num) {
+  &:nth-child(n + #{$num}):nth-last-child(n + #{$num}) {
+    @content;
+  }
+}

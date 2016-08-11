@@ -284,6 +284,9 @@
 	font: 700 13px/17px $opensans-cnd;
 	max-height: 0;
 	overflow: hidden;
+	@include all-but-first-last(1) {
+		left: 0;
+	}
 
 	@include media(">=desktop") {
 		@include position(absolute, 100%, auto, auto, 14px);
